@@ -65,64 +65,101 @@ void readFile(string path, Graph *G) {
     }
 }
 
+void generateJadwal(Graph *G, int sem) {
+    /*KAMUS*/
+    adrNode P;
+    string* toDelete;
+    int i, j;
+
+    /*ALGORITMA*/
+    i = 0, j = 0;
+    P = First(*G);
+    toDelete = new string[100];
+    cout << "Semester " << sem << ": " ;
+    while (P != NULL) {
+        if (NPred(P)==0) {
+            cout << Id(P) << " ";
+            toDelete[i] = Id(P);
+            i += 1;   
+        }
+        P = Next(P);
+    }
+    cout << endl;
+    //Deleting all nodes
+    while (j<i) {
+        DeleteNode(G, toDelete[j]);
+        j += 1;
+    }
+
+    delete[] toDelete;
+}
 
 
 int main () {
     /*KAMUS*/
     Graph G;
+    int sem;
 
     /*ALGORITMA*/
-    readFile("./test/test.txt", &G);
+    readFile("./test/test5.txt", &G);
+    sem = 1;
 
-    adrNode cP = First(G);
-    while (cP != NULL) {
-        cout << "Terdapat " << NPred(cP) << " busur terhubung ke node dengan Id = " << Id(cP) << endl;
-        cP = Next(cP);
+    while (First(G) != NULL) {
+        generateJadwal(&G, sem);
+        sem += 1;
     }
 
-    cout << "--------" << endl;
 
-    adrSuccNode cT = Trail(First(G));
-    cout << Id(First(G)) << " adalah prereq untuk "<< endl;
-    while (cT != NULL) {
-        cout << "-" << Id(Succ(cT)) << endl;
-        cT = NextT(cT);
-    }
+//--------------------------------------------------------------------------------------------------------
+    // adrNode cP = First(G);
+    // while (cP != NULL) {
+    //     cout << "Terdapat " << NPred(cP) << " busur terhubung ke node dengan Id = " << Id(cP) << endl;
+    //     cP = Next(cP);
+    // }
 
-    cout << "--------" << endl;
+    // cout << "--------" << endl;
+
+    // adrSuccNode cT = Trail(First(G));
+    // cout << Id(First(G)) << " adalah prereq untuk "<< endl;
+    // while (cT != NULL) {
+    //     cout << "-" << Id(Succ(cT)) << endl;
+    //     cT = NextT(cT);
+    // }
+
+    // cout << "--------" << endl;
     
-    cout << "Mata kuliah yang bisa diambil saat ini: " << endl;
-    cP = First(G);
-    while (cP != NULL) {
-        if (NPred(cP)==0) {
-            cout << "-" << Id(cP) << endl;
-        }
-        cP = Next(cP);
-    }
-    DeleteNode(&G, "C3");
+    // cout << "Mata kuliah yang bisa diambil saat ini: " << endl;
+    // cP = First(G);
+    // while (cP != NULL) {
+    //     if (NPred(cP)==0) {
+    //         cout << "-" << Id(cP) << endl;
+    //     }
+    //     cP = Next(cP);
+    // }
+    // DeleteNode(&G, "C3");
 
-    cout << "--------" << endl;
+    // cout << "--------" << endl;
     
-    cout << "Mata kuliah yang bisa diambil saat ini: " << endl;
-    cP = First(G);
-    while (cP != NULL) {
-        if (NPred(cP)==0) {
-            cout << "-" << Id(cP) << endl;
-        }
-        cP = Next(cP);
-    }
-    DeleteNode(&G, "C1");
+    // cout << "Mata kuliah yang bisa diambil saat ini: " << endl;
+    // cP = First(G);
+    // while (cP != NULL) {
+    //     if (NPred(cP)==0) {
+    //         cout << "-" << Id(cP) << endl;
+    //     }
+    //     cP = Next(cP);
+    // }
+    // DeleteNode(&G, "C1");
 
-    cout << "--------" << endl;
+    // cout << "--------" << endl;
     
-    cout << "Mata kuliah yang bisa diambil saat ini: " << endl;
-    cP = First(G);
-    while (cP != NULL) {
-        if (NPred(cP)==0) {
-            cout << "-" << Id(cP) << endl;
-        }
-        cP = Next(cP);
-    }
+    // cout << "Mata kuliah yang bisa diambil saat ini: " << endl;
+    // cP = First(G);
+    // while (cP != NULL) {
+    //     if (NPred(cP)==0) {
+    //         cout << "-" << Id(cP) << endl;
+    //     }
+    //     cP = Next(cP);
+    // }
 
     
     return 0;
