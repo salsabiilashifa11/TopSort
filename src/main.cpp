@@ -101,66 +101,13 @@ int main () {
     int sem;
 
     /*ALGORITMA*/
-    readFile("./test/test5.txt", &G);
+    readFile("../test/test8.txt", &G);
     sem = 1;
 
     while (First(G) != NULL) {
         generateJadwal(&G, sem);
         sem += 1;
     }
-
-
-//--------------------------------------------------------------------------------------------------------
-    // adrNode cP = First(G);
-    // while (cP != NULL) {
-    //     cout << "Terdapat " << NPred(cP) << " busur terhubung ke node dengan Id = " << Id(cP) << endl;
-    //     cP = Next(cP);
-    // }
-
-    // cout << "--------" << endl;
-
-    // adrSuccNode cT = Trail(First(G));
-    // cout << Id(First(G)) << " adalah prereq untuk "<< endl;
-    // while (cT != NULL) {
-    //     cout << "-" << Id(Succ(cT)) << endl;
-    //     cT = NextT(cT);
-    // }
-
-    // cout << "--------" << endl;
-    
-    // cout << "Mata kuliah yang bisa diambil saat ini: " << endl;
-    // cP = First(G);
-    // while (cP != NULL) {
-    //     if (NPred(cP)==0) {
-    //         cout << "-" << Id(cP) << endl;
-    //     }
-    //     cP = Next(cP);
-    // }
-    // DeleteNode(&G, "C3");
-
-    // cout << "--------" << endl;
-    
-    // cout << "Mata kuliah yang bisa diambil saat ini: " << endl;
-    // cP = First(G);
-    // while (cP != NULL) {
-    //     if (NPred(cP)==0) {
-    //         cout << "-" << Id(cP) << endl;
-    //     }
-    //     cP = Next(cP);
-    // }
-    // DeleteNode(&G, "C1");
-
-    // cout << "--------" << endl;
-    
-    // cout << "Mata kuliah yang bisa diambil saat ini: " << endl;
-    // cP = First(G);
-    // while (cP != NULL) {
-    //     if (NPred(cP)==0) {
-    //         cout << "-" << Id(cP) << endl;
-    //     }
-    //     cP = Next(cP);
-    // }
-
     
     return 0;
 
