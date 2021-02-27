@@ -65,6 +65,22 @@ void readFile(string path, Graph *G) {
     }
 }
 
+
+void printJadwal(string* matkul, int n) {
+    /*KAMUS*/
+    int i;
+    /*ALGORITMA*/
+    i = 0;
+    while (i <= n) {
+        cout << matkul[i];
+        if (i != n) {
+            cout << ", ";
+        }
+        i += 1; 
+    }   
+    cout << endl;
+}
+
 void generateJadwal(Graph *G, int sem) {
     /*KAMUS*/
     adrNode P;
@@ -78,13 +94,14 @@ void generateJadwal(Graph *G, int sem) {
     cout << "Semester " << sem << ": " ;
     while (P != NULL) {
         if (NPred(P)==0) {
-            cout << Id(P) << " ";
+            // cout << Id(P) << " ";
             toDelete[i] = Id(P);
             i += 1;   
         }
         P = Next(P);
     }
-    cout << endl;
+    printJadwal(toDelete, i-1);
+    // cout << endl;
     //Deleting all nodes
     while (j<i) {
         DeleteNode(G, toDelete[j]);
@@ -93,7 +110,6 @@ void generateJadwal(Graph *G, int sem) {
 
     delete[] toDelete;
 }
-
 
 int main () {
     /*KAMUS*/
