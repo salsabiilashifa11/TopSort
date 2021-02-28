@@ -17,12 +17,13 @@ Penerapan algoritma topological sort pada penyelesaian masalah pengurutan mata k
 ### Menggunakan exe yang sudah tersedia
 1. Naviagasi ke folder bin
 2. Jalankan exe
+3. Ikuti perintah yang ada pada program
 
 ### Kompilasi ulang
 1. Dengan CLI, navigasi ke folder src
 2. Masukkan command: `g++ -o main 13519106-main.cpp 13519106-graph.cpp 13519106-jadwal.cpp`
 3. Jalankan hasil exe dengan: `./main`
-4. Ikuti perintah masukan yang ada pada program
+4. Ikuti perintah yang ada pada program
 > ***NOTE:***  Jika ingin menjalankan dengan perhitungan SKS, pastikan masukan SKS per semester maksimum tidak kurang dari SKS terbesar suatu mata pelajaran pada file teks terkait. 
 
 ## Author
