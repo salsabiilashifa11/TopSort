@@ -1,11 +1,12 @@
-#include "Graph.hpp"
+#include "13519106-graph.hpp"
 
-adrNode AlokNode(string X) {   
+adrNode AlokNode(string X, int S) {   
     /*KAMUS*/
     Node *P = (Node*) malloc(sizeof(Node));
     /*ALGORITMA*/
     if (P != NULL) {
         Id(P) = X;
+        Score(P) = S;
         NPred(P) = 0;
         Trail(P) = NULL;
         Next(P) = NULL;
@@ -37,11 +38,11 @@ void DealokSuccNode(adrSuccNode Pt) {
     free(Pt);
 }
 
-void CreateGraph (Graph *G, string X) {   
+void CreateGraph (Graph *G, string X, int S) {   
     /*KAMUS*/
     adrNode P;
     /*ALGORITMA*/
-    P  = AlokNode(X);
+    P  = AlokNode(X, S);
     First(*G) = P;
 }
 
@@ -85,12 +86,12 @@ adrSuccNode SearchEdge(Graph G, string prec, string succ) {
     
 }
 
-void InsertNode(Graph *G, string X, adrNode *Pn) {   
+void InsertNode(Graph *G, string X, int S, adrNode *Pn) {   
     /*KAMUS*/
     adrNode LastG;
     /*ALGORITMA*/
     LastG = First(*G);
-    *Pn = AlokNode(X);
+    *Pn = AlokNode(X, S);
     if (*Pn != NULL){
         while (Next(LastG) != NULL){
             LastG = Next(LastG);
